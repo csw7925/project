@@ -4,6 +4,10 @@
 #include <stdlib.h>
 #include <ctime>
 #include "Monster.h"
-#include "Monster_0.h"
-
+#include "Player.h"
+#include "Boss.h"
+#include "Boss_0.h"
+#include <cstdlib>
 using namespace std;
+
+void MakeAttackKeyword();

@@ -4,5 +4,5 @@ class Monster
 public:
 	int timelimit;
 	int attacknumber;
-	virtual void NormalAttack()=0;
+	void NormalAttack();
 };

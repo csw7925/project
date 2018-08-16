@@ -32,7 +32,7 @@ void Monster_0::NormalAttack()
 		}
 		end = clock();
 		result += (double)(end - start);
-		cout << timelimit - (int)result / 1000;
+		cout << timelimit - (int)result / 1000 << endl;
 		if (timelimit - (int)result / 1000 < 0)
 		{
 			cout << "시간초과"<<endl;

@@ -5,8 +5,14 @@ using namespace std;
 
 int main()
 {
-	Monster_0 abc;
-	for(int i=0;i<abc.attacknumber;i++)
-		abc.NormalAttack();
+	Monster lv_1;
+	int stagecount = 1;
+	cout << "레이드" << endl;
+	cout << "STAGE :" << stagecount << endl;
+	MakeAttackKeyword();//방어키 셋팅
+	while (1)
+	{
+		
+	}
 	return 0;
 }
