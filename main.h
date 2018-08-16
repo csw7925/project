@@ -8,6 +8,5 @@
 #include "Boss.h"
 #include "Boss_0.h"
 #include <cstdlib>
-using namespace std;
 
-void MakeAttackKeyword();
+using namespace std;

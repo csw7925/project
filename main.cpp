@@ -9,7 +9,7 @@ int main()
 	int stagecount = 1;
 	cout << "레이드" << endl;
 	cout << "STAGE :" << stagecount << endl;
-	MakeAttackKeyword();//방어키 셋팅
+	lv_1.NormalAttack();
 	while (1)
 	{
 		
