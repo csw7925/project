@@ -1,14 +1,16 @@
 #pragma once
-//class Boss
-//{
-//public:
-//	int timelimit;
-//	int attacknumber;
-//
-//	virtual void NormalAttack() = 0;
-//	virtual void StunAttack() = 0;
-//	virtual void ReverseAttack() = 0;
-//	virtual void BlindAttack() = 0;
-//	virtual void OddNumberAttack() = 0;
-//	virtual void EvenNumberAttack() = 0;
-//};
+class Boss :
+	public Monster
+{
+public:
+	int timelimit=7;
+	int attacknumber=3;
+	int stagecount = 1;
+
+	void BossAttack();
+	void StunAttack();
+	void ReverseAttack();
+	void BlindAttack();
+	void OddNumberAttack();
+	void EvenNumberAttack();
+};

@@ -5,14 +5,28 @@ using namespace std;
 
 int main()
 {
-	Monster lv_1;
-	int stagecount = 1;
+	Monster Monster;
+	Boss Boss;
+	
 	cout << "레이드" << endl;
-	cout << "STAGE :" << stagecount << endl;
-	lv_1.NormalAttack();
 	while (1)
-	{
-		
+	{		
+		if (Monster.stagecount == 0)
+			break;
+		else if (Monster.stagecount % 5 == 0)
+		{
+			cout << "STAGE :" << Monster.stagecount << endl;
+			cout << "보스몬스터 출현!!" << endl;			
+			Boss.BlindAttack();
+			
+		}
+		else
+		{
+			cout << "STAGE :" << Monster.stagecount << endl;
+			Boss.BossAttack();
+			Monster.stagecount++;
+		}
 	}
+	
 	return 0;
 }
