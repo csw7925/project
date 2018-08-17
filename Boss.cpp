@@ -1,6 +1,6 @@
 #include "main.h"
 
-void Boss ::BlindAttack()
+void Boss ::BlindAttack(int &deathcount, int &stagecount, int &hp)
 {
 	clock_t start, end;
 	double result = 0;
@@ -33,8 +33,9 @@ void Boss ::BlindAttack()
 				cout << timelimit - ((int)result / 1000) << endl;
 				if (timelimit - ((int)result / 1000) < 0)
 				{
-					cout << "시간초과" << endl;
-					stagecount = 0;
+					ReduceHp(stagecount,hp);
+					cout << "시간초과"<<hp << endl;		
+					deathcount++;
 					sw = 0;
 					break;
 				}
@@ -48,20 +49,20 @@ void Boss ::BlindAttack()
 				cout << timelimit - ((int)result / 1000) << endl;
 				if (timelimit - ((int)result / 1000) < 0)
 				{
-					cout << "시간초과" << endl;
-					stagecount = 0;
+					ReduceHp(stagecount,hp);
+					cout << "시간초과"<<hp << endl;	
+					deathcount++;
 					sw = 0;
 					break;
 				}
 				cout << "방어에 성공하였습니다." << endl;
-				stagecount++;
 				sw = 0;
 			}
 		}
 	}
 }
 
-void Boss::ReverseAttack()
+void Boss::ReverseAttack(int &deathcount, int &stagecount, int &hp)
 {
 	clock_t start, end;
 	double result = 0;
@@ -91,8 +92,9 @@ void Boss::ReverseAttack()
 				cout << timelimit - ((int)result / 1000) << endl;
 				if (timelimit - ((int)result / 1000) < 0)
 				{
-					cout << "시간초과" << endl;
-					stagecount = 0;
+					ReduceHp(stagecount,hp);
+					cout << "시간초과"<<hp << endl;
+					deathcount++;
 					sw = 0;
 					break;
 				}
@@ -106,21 +108,22 @@ void Boss::ReverseAttack()
 				cout << timelimit - ((int)result / 1000) << endl;
 				if (timelimit - ((int)result / 1000) < 0)
 				{
-					cout << "시간초과" << endl;
-					stagecount = 0;
+					ReduceHp(stagecount,hp);
+					cout << "시간초과" <<hp<< endl;
+					deathcount++;
 					sw = 0;
 					break;
 				}
 				cout << "방어에 성공하였습니다." << endl;
-				stagecount++;
 				sw = 0;
 			}
 		}
 	}
 }
 
-void Boss::StunAttack()
+void Boss::StunAttack(int &deathcount, int &stagecount, int &hp)
 {
+	Player Player;
 	clock_t start, end;
 	double result = 0;
 	char inputkeyword[20];
@@ -153,8 +156,9 @@ void Boss::StunAttack()
 				cout << timelimit - ((int)result / 1000) << endl;
 				if (timelimit - ((int)result / 1000) < 0)
 				{
-					cout << "시간초과" << endl;
-					stagecount = 0;
+					ReduceHp(stagecount,hp);
+					cout << "시간초과" << hp << endl;
+					deathcount++;
 					sw = 0;
 					break;
 				}
@@ -168,22 +172,22 @@ void Boss::StunAttack()
 				cout << timelimit - ((int)result / 1000) << endl;
 				if (timelimit - ((int)result / 1000) < 0)
 				{
-					cout << "시간초과" << endl;
-					stagecount = 0;
+					ReduceHp(stagecount,hp);
+					cout << "시간초과" << hp << endl;
+					deathcount++;
 					sw = 0;
 					break;
 				}
 				cout << "방어에 성공하였습니다." << endl;
-				stagecount++;
 				sw = 0;
 			}
 		}
 	}
 }
-void Boss::OddNumberAttack()
+void Boss::OddNumberAttack(int &deathcount, int &stagecount, int &hp)
 {
+	Player Player;
 	clock_t start, end;
-	int i;
 	double result = 0;
 	int sw = 1;
 	int k = 0;
@@ -218,7 +222,9 @@ void Boss::OddNumberAttack()
 
 				if (timelimit - ((int)result) / 1000 < 0)
 				{
-					cout << "느려서 공격에 맞았다!" << endl;
+					ReduceHp(stagecount,hp);
+					cout << "시간초과" << hp << endl;
+					deathcount++;
 					sw = 0;
 					break;
 				}
@@ -234,12 +240,13 @@ void Boss::OddNumberAttack()
 
 				if (timelimit - ((int)result) / 1000 < 0)
 				{
-					cout << "느려서 공격에 맞았다!" << endl;
+					ReduceHp(stagecount,hp);
+					cout << "시간초과" << hp << endl;
+					deathcount++;
 					sw = 0;
 					break;
 				}
 
-				stagecount++;
 				sw = 0;
 
 			}
@@ -249,10 +256,10 @@ void Boss::OddNumberAttack()
 	}
 }
 
-void Boss::EvenNumberAttack()
+void Boss::EvenNumberAttack(int &deathcount,int &stagecount, int &hp)
 {
+	Player Player;
 	clock_t start, end;
-	int i;
 	double result = 0;
 	int sw = 1;
 	int k = 0;
@@ -287,7 +294,9 @@ void Boss::EvenNumberAttack()
 
 				if (timelimit - ((int)result) / 1000 < 0)
 				{
-					cout << "느려서 공격에 맞았다!" << endl;
+					ReduceHp(stagecount,hp);
+					cout << "시간초과" << hp << endl;
+					deathcount++;
 					sw = 0;
 					break;
 				}
@@ -303,12 +312,13 @@ void Boss::EvenNumberAttack()
 
 				if (timelimit - ((int)result) / 1000 < 0)
 				{
-					cout << "느려서 공격에 맞았다!" << endl;
+					ReduceHp(stagecount,hp);
+					cout << "시간초과" << hp << endl;
+					deathcount++;
 					sw = 0;
 					break;
 				}
 
-				stagecount++;
 				sw = 0;
 
 			}
@@ -317,29 +327,90 @@ void Boss::EvenNumberAttack()
 
 	}
 }
-void Boss::BossAttack()
+void Boss::NormalAttack(int &deathcount, int &stagecount, int &hp)
+{
+	Player Player;
+	clock_t start, end;
+	double result = 0;
+	char inputkeyword[20];
+	int sw = 1;
+
+	MakeAttackKeyword();
+
+	cout << "일반 공격이 시작되었습니다." << endl;
+
+	for (int i = 0; i < 10; i++)
+	{
+		cout << defensekeyword[i];
+	}
+
+	cout << endl;
+	while (sw)
+	{
+		start = clock();
+		cin >> inputkeyword;
+		for (int i = 0; i < 10; i++)
+		{
+			if (defensekeyword[i] != inputkeyword[i])
+			{
+				end = clock();
+				result += (double)(end - start);
+				cout << timelimit - ((int)result / 1000) << endl;
+				if (timelimit - ((int)result / 1000) < 0)
+				{
+					ReduceHp(stagecount,hp);
+					cout << "시간초과" << hp << endl;
+					deathcount++;
+					sw = 0;
+					break;
+				}
+				cout << "다시 입력하세요" << endl;
+				break;
+			}
+			else if (i == 9)
+			{
+				end = clock();
+				result += (double)(end - start);
+				cout << timelimit - ((int)result / 1000) << endl;
+				if (timelimit - ((int)result / 1000) < 0)
+				{
+					ReduceHp(deathcount,hp);
+					cout << "시간초과" << hp << endl;
+					deathcount++;
+					sw = 0;
+					break;
+				}
+				cout << "방어에 성공하였습니다." << endl;
+				sw = 0;
+			}
+		}
+	}
+}
+void Boss::BossAttack(int &deathcount, int &stagecount,int &hp)
 {
 	int i;
 	srand((unsigned int)time(NULL));
 	for (int j = 0; j < attacknumber;j++)
 	{
+		if (deathcount == 3)
+			break;
 		i =  rand() % 5;
 		switch (i) 
 		{
 		case 0:
-			StunAttack();
+			StunAttack(deathcount, stagecount,hp);
 			break;
 		case 1:
-			NormalAttack();
+			NormalAttack(deathcount, stagecount,hp);
 			break;
 		case 2:
-			ReverseAttack();
+			ReverseAttack(deathcount, stagecount,hp);
 			break;
 		case 3:
-			OddNumberAttack();
+			OddNumberAttack(deathcount, stagecount,hp);
 			break;
 		case 4:
-			EvenNumberAttack();
+			EvenNumberAttack(deathcount, stagecount,hp);
 			break;
 		}
 	}

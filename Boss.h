@@ -5,12 +5,13 @@ class Boss :
 public:
 	int timelimit=7;
 	int attacknumber=3;
-	int stagecount = 1;
+	int deathcount = 0;
 
-	void BossAttack();
-	void StunAttack();
-	void ReverseAttack();
-	void BlindAttack();
-	void OddNumberAttack();
-	void EvenNumberAttack();
+	void BossAttack(int &deathcount, int &stagecount,int &hp);
+	void StunAttack(int &deathcount, int &stagecount, int &hp);
+	void ReverseAttack(int &deathcount, int &stagecount, int &hp);
+	void BlindAttack(int &deathcount, int &stagecount, int &hp);
+	void OddNumberAttack(int &deathcount, int &stagecount, int &hp);
+	void EvenNumberAttack(int &deathcount, int &stagecount, int &hp);
+	void NormalAttack(int &deathcount, int &stagecount, int &hp);
 };

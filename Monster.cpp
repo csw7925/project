@@ -12,8 +12,9 @@ void Monster::MakeAttackKeyword()
 	}
 }
 
-void Monster::NormalAttack()
+void Monster::NormalAttack(int &stagecount,int &hp)
 {
+	Player Player;
 	clock_t start, end;
 	double result = 0;
 	char inputkeyword[20];
@@ -42,8 +43,8 @@ void Monster::NormalAttack()
 				cout << timelimit - ((int)result / 1000) << endl;
 				if (timelimit - ((int)result / 1000) < 0)
 				{
-					cout << "시간초과" << endl;
-					stagecount = 0;
+					ReduceHp(stagecount,hp);
+					cout << "시간초과" << endl;					
 					sw = 0;
 					break;
 				}
@@ -57,8 +58,8 @@ void Monster::NormalAttack()
 				cout << timelimit - ((int)result / 1000) << endl;
 				if (timelimit - ((int)result / 1000) < 0)
 				{
-					cout << "시간초과" << endl;
-					stagecount = 0;
+					ReduceHp(stagecount,hp);
+					cout << "시간초과" << endl;					
 					sw=0;
 					break;
 				}
