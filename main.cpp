@@ -24,12 +24,16 @@ int main()
 			if (Boss.deathcount == 3)
 				Player.hp = 0;
 			else
+			{
 				Player.stagecount++;
+				Boss.deathcount = 0;
+			}
+				
 		}
 		else
 		{
 			cout << "STAGE :" << Player.stagecount << endl;
-			Monster.NormalAttack(Player.stagecount,Player.hp);
+			Monster.MonsterAttack(Player.stagecount,Player.hp);
 		}
 		cout << "HP : " << Player.hp << endl;
 	}

@@ -1,11 +1,5 @@
 #include "main.h"
 
-void Player::RecoverHp(int &hp)
-{
-	hp = 100;
-}
-
-
 void Player::ReduceHp(int &stagecount,int &hp)
 {
 	if (stagecount > 0 && stagecount < 5)

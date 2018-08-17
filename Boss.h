@@ -14,4 +14,5 @@ public:
 	void OddNumberAttack(int &deathcount, int &stagecount, int &hp);
 	void EvenNumberAttack(int &deathcount, int &stagecount, int &hp);
 	void NormalAttack(int &deathcount, int &stagecount, int &hp);
+	void SetLevel(int &stagecount);
 };

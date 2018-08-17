@@ -1,5 +1,24 @@
 #include "main.h"
 
+void Boss::SetLevel(int &stagecount)
+{
+	if (stagecount == 5)
+	{
+		timelimit = 12;
+		attacknumber = 3;
+	}
+	else if (stagecount == 10)
+	{
+		timelimit = 10;
+		attacknumber = 4;
+	}
+	else if (stagecount == 15)
+	{
+		timelimit = 7;
+		attacknumber = 5;
+	}
+}
+
 void Boss ::BlindAttack(int &deathcount, int &stagecount, int &hp)
 {
 	clock_t start, end;
@@ -56,6 +75,10 @@ void Boss ::BlindAttack(int &deathcount, int &stagecount, int &hp)
 					break;
 				}
 				cout << "방어에 성공하였습니다." << endl;
+				cout << "다음 공격에 대비하세요." << endl;
+				_sleep(2000);
+
+				system("cls");
 				sw = 0;
 			}
 		}
@@ -115,6 +138,10 @@ void Boss::ReverseAttack(int &deathcount, int &stagecount, int &hp)
 					break;
 				}
 				cout << "방어에 성공하였습니다." << endl;
+				cout << "다음 공격에 대비하세요." << endl;
+				_sleep(2000);
+
+				system("cls");
 				sw = 0;
 			}
 		}
@@ -179,6 +206,10 @@ void Boss::StunAttack(int &deathcount, int &stagecount, int &hp)
 					break;
 				}
 				cout << "방어에 성공하였습니다." << endl;
+				cout << "다음 공격에 대비하세요." << endl;
+				_sleep(2000);
+
+				system("cls");
 				sw = 0;
 			}
 		}
@@ -243,10 +274,14 @@ void Boss::OddNumberAttack(int &deathcount, int &stagecount, int &hp)
 					ReduceHp(stagecount,hp);
 					cout << "시간초과" << hp << endl;
 					deathcount++;
+					
 					sw = 0;
 					break;
 				}
+				cout << "다음 공격에 대비하세요." << endl;
+				_sleep(2000);
 
+				system("cls");
 				sw = 0;
 
 			}
@@ -318,7 +353,10 @@ void Boss::EvenNumberAttack(int &deathcount,int &stagecount, int &hp)
 					sw = 0;
 					break;
 				}
+				cout << "다음 공격에 대비하세요." << endl;
+				_sleep(2000);
 
+				system("cls");
 				sw = 0;
 
 			}
@@ -381,6 +419,10 @@ void Boss::NormalAttack(int &deathcount, int &stagecount, int &hp)
 					break;
 				}
 				cout << "방어에 성공하였습니다." << endl;
+				cout << "다음 공격에 대비하세요." << endl;
+				_sleep(2000);
+
+				system("cls");
 				sw = 0;
 			}
 		}
@@ -389,12 +431,15 @@ void Boss::NormalAttack(int &deathcount, int &stagecount, int &hp)
 void Boss::BossAttack(int &deathcount, int &stagecount,int &hp)
 {
 	int i;
+	SetLevel(stagecount);
 	srand((unsigned int)time(NULL));
 	for (int j = 0; j < attacknumber;j++)
 	{
 		if (deathcount == 3)
 			break;
-		i =  rand() % 5;
+		if (hp == 0)
+			break;
+		i =  rand() % 6;
 		switch (i) 
 		{
 		case 0:
@@ -411,6 +456,9 @@ void Boss::BossAttack(int &deathcount, int &stagecount,int &hp)
 			break;
 		case 4:
 			EvenNumberAttack(deathcount, stagecount,hp);
+			break;
+		case 5:
+			BlindAttack(deathcount, stagecount, hp);
 			break;
 		}
 	}

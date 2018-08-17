@@ -1,5 +1,27 @@
 #include "main.h"
 
+void Monster::SetLevel(int &stagecount)
+{
+	if (stagecount > 0 && stagecount < 5)
+	{
+		timelimit = 15; 
+		attacknumber = 2;
+	}		
+	else if (stagecount > 5 && stagecount < 10)
+	{
+		timelimit = 10;
+		attacknumber = 3;
+	}
+	else if (stagecount > 10 && stagecount < 15)
+	{
+		timelimit = 7;
+		attacknumber = 4;
+	}
+}
+
+
+
+
 void Monster::MakeAttackKeyword()
 {
 	srand((unsigned int)time(NULL));
@@ -14,12 +36,12 @@ void Monster::MakeAttackKeyword()
 
 void Monster::NormalAttack(int &stagecount,int &hp)
 {
-	Player Player;
 	clock_t start, end;
 	double result = 0;
 	char inputkeyword[20];
 	int sw=1;
-
+	SetLevel(stagecount);
+	
 	MakeAttackKeyword();
 
 	cout << "일반 공격이 시작되었습니다." << endl;
@@ -64,9 +86,25 @@ void Monster::NormalAttack(int &stagecount,int &hp)
 					break;
 				}
 				cout << "방어에 성공하였습니다." << endl;
-				stagecount++;
+				cout << "다음 공격에 대비하세요." << endl;
+				_sleep(2000);
+				
+				system("cls");
 				sw = 0;
 			}
 		}		
 	}
+}
+
+void Monster::MonsterAttack(int &stagecount, int &hp)
+{
+	int i;
+	
+	for (int j = 0; j < attacknumber; j++)
+	{
+		NormalAttack(stagecount, hp);
+		if (hp == 0)
+			break;
+	}
+	stagecount++;
 }

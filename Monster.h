@@ -4,10 +4,12 @@ class Monster:
 	public Player
 {
 public:
-	int timelimit=7;
+	int timelimit=10;
 	int attacknumber=3;
 	char defensekeyword[10];
 
 	void NormalAttack(int &stagecount,int &hp);
 	void MakeAttackKeyword();
+	void SetLevel(int &stagecount);
+	void MonsterAttack(int &stagecount, int &hp);
 };
