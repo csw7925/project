@@ -19,13 +19,24 @@ void Boss::SetLevel(int &stagecount)
 	}
 }
 
+void Boss::MakeBossAttackKeyword()
+{
+	srand((unsigned int)time(NULL));
+
+	char Alphabet[10] = { "CGUVMN" };
+
+	for (int i = 0; i < 10; i++)
+	{
+		defensekeyword[i] = Alphabet[rand() % 6];
+	}
+}
+
 void Boss ::BlindAttack(int &deathcount, int &stagecount, int &hp)
 {
 	clock_t start, end;
 	double result = 0;
 	char inputkeyword[20];
 	int sw = 1;
-	srand((unsigned int)time(NULL));
 	MakeAttackKeyword();
 
 	cout << "블라인드 공격이 시작되었습니다." << endl;
@@ -215,6 +226,7 @@ void Boss::StunAttack(int &deathcount, int &stagecount, int &hp)
 		}
 	}
 }
+
 void Boss::OddNumberAttack(int &deathcount, int &stagecount, int &hp)
 {
 	Player Player;
@@ -365,6 +377,7 @@ void Boss::EvenNumberAttack(int &deathcount,int &stagecount, int &hp)
 
 	}
 }
+
 void Boss::NormalAttack(int &deathcount, int &stagecount, int &hp)
 {
 	Player Player;
@@ -373,7 +386,7 @@ void Boss::NormalAttack(int &deathcount, int &stagecount, int &hp)
 	char inputkeyword[20];
 	int sw = 1;
 
-	MakeAttackKeyword();
+	MakeBossAttackKeyword();
 
 	cout << "일반 공격이 시작되었습니다." << endl;
 
@@ -428,6 +441,7 @@ void Boss::NormalAttack(int &deathcount, int &stagecount, int &hp)
 		}
 	}
 }
+
 void Boss::BossAttack(int &deathcount, int &stagecount,int &hp)
 {
 	int i;

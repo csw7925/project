@@ -19,9 +19,6 @@ void Monster::SetLevel(int &stagecount)
 	}
 }
 
-
-
-
 void Monster::MakeAttackKeyword()
 {
 	srand((unsigned int)time(NULL));
@@ -66,7 +63,7 @@ void Monster::NormalAttack(int &stagecount,int &hp)
 				if (timelimit - ((int)result / 1000) < 0)
 				{
 					ReduceHp(stagecount,hp);
-					cout << "시간초과" << endl;					
+					cout << "시간초과"<<hp << endl;					
 					sw = 0;
 					break;
 				}
@@ -81,10 +78,11 @@ void Monster::NormalAttack(int &stagecount,int &hp)
 				if (timelimit - ((int)result / 1000) < 0)
 				{
 					ReduceHp(stagecount,hp);
-					cout << "시간초과" << endl;					
+					cout << "시간초과" <<hp <<endl;					
 					sw=0;
 					break;
 				}
+
 				cout << "방어에 성공하였습니다." << endl;
 				cout << "다음 공격에 대비하세요." << endl;
 				_sleep(2000);
@@ -97,9 +95,7 @@ void Monster::NormalAttack(int &stagecount,int &hp)
 }
 
 void Monster::MonsterAttack(int &stagecount, int &hp)
-{
-	int i;
-	
+{	
 	for (int j = 0; j < attacknumber; j++)
 	{
 		NormalAttack(stagecount, hp);

@@ -15,4 +15,5 @@ public:
 	void EvenNumberAttack(int &deathcount, int &stagecount, int &hp);
 	void NormalAttack(int &deathcount, int &stagecount, int &hp);
 	void SetLevel(int &stagecount);
+	void MakeBossAttackKeyword();
 };
